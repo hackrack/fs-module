@@ -1,5 +1,6 @@
 const fs = require("fs");
-var poem = `’Twas brillig, and the slithy toves
+var poem =
+`’Twas brillig, and the slithy toves
 Did gyre and gimble in the wabe;
 All mimsy were the borogoves,
 And the mome raths outgrabe.
@@ -28,9 +29,16 @@ Did gyre and gimble in the wabe;
 All mimsy were the borogoves,
 And the mome raths outgrabe.`
 
-for (var i = 1; i <= 28; i++) {
+for (var i = 0; i < 28; i++) {
   var arr = poem.split("\n");
   fs.writeFile(`jabb-${i}`, arr[i], err => {
     console.log(err);
+  })
+
+}
+for (var i = 0; i < 28; i++) {
+  fs.appendFile("jabb-master.txt", arr[i], 'utf8', (err) => {
+    if(err) throw err;
+    console.log("data appended");
   })
 }
